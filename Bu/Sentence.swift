@@ -16,6 +16,8 @@ class Sentence {
     }
     
     convenience init(FromJSON json : JSON){
+        print("Printing RAW STRING")
+        print(json.rawString())
         let id = json["id"].intValue
         let wordsDef = json["wordsDef"].arrayValue
         var words = [Word](count: wordsDef.count, repeatedValue: Word(id: 0, hanzi: "", pinyin: "", words: [], definitions: [], position: 0))

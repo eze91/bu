@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8b-fg-uGH">
-                    <rect key="frame" x="10" y="10" width="580" height="580"/>
+                    <rect key="frame" x="10" y="50" width="580" height="540"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <attributedString key="attributedText">
@@ -33,7 +33,7 @@
                 <constraint firstAttribute="trailing" secondItem="R8b-fg-uGH" secondAttribute="trailing" constant="10" id="3o1-yK-k8W"/>
                 <constraint firstItem="R8b-fg-uGH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Yes-8U-qh1"/>
                 <constraint firstAttribute="bottom" secondItem="R8b-fg-uGH" secondAttribute="bottom" constant="10" id="dmz-fE-Mvp"/>
-                <constraint firstItem="R8b-fg-uGH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="mMA-aY-1FI"/>
+                <constraint firstItem="R8b-fg-uGH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="mMA-aY-1FI"/>
             </constraints>
         </view>
     </objects>

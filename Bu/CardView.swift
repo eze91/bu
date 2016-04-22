@@ -13,10 +13,13 @@ class CardView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     
     let CHARACTER_WIDTH = 40
     let CELL_HEIGHT = CGFloat(65)
+    var lastWordIndex = -1
     
     var sentence : Sentence?
-    
+    var collectionView: UICollectionView?
     var unknownWords = Set<Int>()
+    
+    var delegate: ExpandWordDelegate?
     
     init(frame: CGRect, sentence: Sentence?) {
         super.init(frame: frame)
@@ -24,13 +27,13 @@ class CardView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlow
         
         if let sentence = sentence {
             self.sentence = sentence
-            let collectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 20, y: 20), size: CGSize(width: self.frame.width - 40, height: self.frame.height - 40)), collectionViewLayout: UICollectionViewLeftAlignedLayout())
-            collectionView.delegate = self
-            collectionView.backgroundColor = UIColor.whiteColor()
-            collectionView.dataSource = self
+            collectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 20, y: 30), size: CGSize(width: self.frame.width - 40, height: self.frame.height - 50)), collectionViewLayout: UICollectionViewLeftAlignedLayout())
+            collectionView?.delegate = self
+            collectionView?.backgroundColor = UIColor.whiteColor()
+            collectionView?.dataSource = self
             
-            collectionView.registerNib(UINib(nibName: "WordView", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: "wordCellReuseIdentifier")
-            self.addSubview(collectionView)
+            collectionView?.registerNib(UINib(nibName: "WordView", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: "wordCellReuseIdentifier")
+            self.addSubview(collectionView!)
         }
     }
 
@@ -42,9 +45,9 @@ class CardView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     func setup() {
         // Shadow
         layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOpacity = 0.1
+        layer.shadowOpacity = 0.12
         layer.shadowOffset = CGSizeMake(0, 1.5)
-        layer.shadowRadius = 4.0
+        layer.shadowRadius = 5.0
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.mainScreen().scale
         
@@ -73,12 +76,23 @@ class CardView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     //MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let touchedWordCell = collectionView.cellForItemAtIndexPath(indexPath) as! WordView
-        touchedWordCell.isMarked = !touchedWordCell.isMarked && !touchedWordCell.isPunctuation
-        if touchedWordCell.isMarked {
-            unknownWords.insert(touchedWordCell.idWord!)
-        } else {
-            unknownWords.remove(touchedWordCell.idWord!)
+        
+        if !touchedWordCell.isPunctuation {
+            if touchedWordCell.isMarked && lastWordIndex != indexPath.row {
+                
+            } else {
+                touchedWordCell.isMarked = !touchedWordCell.isMarked
+                if touchedWordCell.isMarked {
+                    unknownWords.insert(touchedWordCell.idWord!)
+                } else {
+                    unknownWords.remove(touchedWordCell.idWord!)
+                    delegate?.hideWord(nil)
+                    return
+                }
+            }
+            print(unknownWords)
+            delegate!.expandWord(sentence!.words[indexPath.row])
+            lastWordIndex = indexPath.row
         }
-        print(unknownWords)
     }
 }

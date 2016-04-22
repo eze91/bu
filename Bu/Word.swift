@@ -26,7 +26,7 @@ class Word {
     
     convenience init(var FromJSON json : JSON){
         
-        let definitionHere = json["here"].string
+        var definitionHere = json["here"].string
         let position = json["position"].intValue
         json = json["word"]
         if json != nil {
@@ -34,14 +34,25 @@ class Word {
             let id = json["id"].intValue
             let hanzi = json["hanzi"].stringValue
             let pinyin = json["pinyin"].stringValue
-            var words = [Word]()
-            for jsonWord in json["word"].arrayValue {
-                words.append(Word(FromJSON: jsonWord))
+            var unorderedWords = [Word]()
+            for jsonWord in json["hasWords"].arrayValue {
+                unorderedWords.append(Word(FromJSON: jsonWord))
             }
-            // TODO: sort words
+            var words = [Word](count: unorderedWords.count, repeatedValue: Word(id: 0, hanzi: "", pinyin: "", words: [], definitions: [], position: 0))
+            
+            for unorderedWord in unorderedWords {
+                words[unorderedWord.position] = unorderedWord
+            }
             var definitions = [String]()
-            for jsonDefiniiton in json["definition"].arrayValue {
-                definitions.append(jsonDefiniiton.stringValue)
+            
+            if json["definition"].arrayValue.count > 1 {
+                for jsonDefiniiton in json["definition"].arrayValue {
+                    if !jsonDefiniiton.stringValue.hasPrefix(definitionHere!) {
+                        definitions.append(jsonDefiniiton.stringValue)
+                    }
+                }
+            } else {
+                definitionHere = json["definition"].arrayValue[0].stringValue
             }
             
             self.init(id: id, hanzi: hanzi, pinyin: pinyin, words: words, definitions : definitions, position: position)

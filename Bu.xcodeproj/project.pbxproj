@@ -10,6 +10,9 @@
 		4E587FB40D6DEEC2118E964E /* Pods_Bu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63BC7A98BD6F49C7F10A4A5 /* Pods_Bu.framework */; };
 		E22ABB141C112A2300357F2E /* WordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22ABB131C112A2300357F2E /* WordView.xib */; };
 		E22ABB161C112A5C00357F2E /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ABB151C112A5C00357F2E /* WordView.swift */; };
+		E22ABB181C1359A600357F2E /* DefinitionPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22ABB171C1359A600357F2E /* DefinitionPanel.xib */; };
+		E22ABB1A1C135A2C00357F2E /* DefinitionPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ABB191C135A2C00357F2E /* DefinitionPanel.swift */; };
+		E22ABB1C1C14E05500357F2E /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ABB1B1C14E05500357F2E /* ProgressViewController.swift */; };
 		E2B6F9411C0E8D070070C2F1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6F93F1C0E8D070070C2F1 /* CardView.swift */; };
 		E2B6F9421C0E8D070070C2F1 /* CardContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B6F9401C0E8D070070C2F1 /* CardContentView.xib */; };
 		E2B6F9441C0E8D310070C2F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B6F9431C0E8D310070C2F1 /* Images.xcassets */; };
@@ -46,6 +49,9 @@
 		A707AB9A063D57EDB1449216 /* Pods-Bu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bu/Pods-Bu.debug.xcconfig"; sourceTree = "<group>"; };
 		E22ABB131C112A2300357F2E /* WordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordView.xib; sourceTree = "<group>"; };
 		E22ABB151C112A5C00357F2E /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		E22ABB171C1359A600357F2E /* DefinitionPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefinitionPanel.xib; sourceTree = "<group>"; };
+		E22ABB191C135A2C00357F2E /* DefinitionPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefinitionPanel.swift; sourceTree = "<group>"; };
+		E22ABB1B1C14E05500357F2E /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		E2B6F93F1C0E8D070070C2F1 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E2B6F9401C0E8D070070C2F1 /* CardContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardContentView.xib; sourceTree = "<group>"; };
 		E2B6F9431C0E8D310070C2F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -156,6 +162,9 @@
 				E2DFDC3A1C0C8D5A00507ED4 /* Bu.xcdatamodeld */,
 				E22ABB131C112A2300357F2E /* WordView.xib */,
 				E22ABB151C112A5C00357F2E /* WordView.swift */,
+				E22ABB171C1359A600357F2E /* DefinitionPanel.xib */,
+				E22ABB191C135A2C00357F2E /* DefinitionPanel.swift */,
+				E22ABB1B1C14E05500357F2E /* ProgressViewController.swift */,
 			);
 			path = Bu;
 			sourceTree = "<group>";
@@ -290,6 +299,7 @@
 				E2B6F9441C0E8D310070C2F1 /* Images.xcassets in Resources */,
 				E2DFDC411C0C8D5A00507ED4 /* LaunchScreen.storyboard in Resources */,
 				E2DFDC391C0C8D5A00507ED4 /* Main.storyboard in Resources */,
+				E22ABB181C1359A600357F2E /* DefinitionPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,10 +373,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2DFDC361C0C8D5A00507ED4 /* ViewController.swift in Sources */,
+				E22ABB1A1C135A2C00357F2E /* DefinitionPanel.swift in Sources */,
 				E2DFDC3C1C0C8D5A00507ED4 /* Bu.xcdatamodeld in Sources */,
 				E2B6F9471C10CF400070C2F1 /* Word.swift in Sources */,
 				E22ABB161C112A5C00357F2E /* WordView.swift in Sources */,
 				E2B6F9411C0E8D070070C2F1 /* CardView.swift in Sources */,
+				E22ABB1C1C14E05500357F2E /* ProgressViewController.swift in Sources */,
 				E2B6F9491C10E3790070C2F1 /* Sentence.swift in Sources */,
 				E2DFDC341C0C8D5A00507ED4 /* AppDelegate.swift in Sources */,
 			);
